@@ -13,8 +13,24 @@
 const cypher = (encoded) => {
     
     /* Only make changes below this comment */
+    const words = encoded.split(''); //array
+
+    let decoded = '';
+    words.forEach(Element=>{
+        
+        //console.log(String.fromCharCode(Element.charCodeAt(0) +13))
+        let num = (Element.charCodeAt(0)>90 || Element.charCodeAt(0)<65 ? Element.charCodeAt(0) :(Element.charCodeAt(0)+13) >90 ? Element.charCodeAt(0)-13:Element.charCodeAt(0)+13);
+        decoded += String.fromCharCode(num);
+    });
+
+    console.log(decoded);
+    /*
+    let t = 'A';
+    let num = t.charCodeAt(0)
+    console.log(t, t.charCodeAt(0) )
+    console.log('here', String.fromCharCode(t+13))*/
     
-   return encoded;
+   return decoded;
     /* Only make changes above this comment */
 }
 
