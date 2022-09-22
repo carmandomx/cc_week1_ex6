@@ -27,7 +27,7 @@ const cypher = (encoded) => {
     for (let e = 0; e < encoded.length; e++) {  //wE GONNA EVALUATE CHARACTER BY CHARACTER IN A FOR
         if (isAlpha(encoded[e])){  //IF THE CHARACTER isAlpha then
             let index_in_Alp = alphabeth.indexOf(encoded[e]); //We gonna ask for his index in the Alphabet
-            let finalIndex = (index_in_Alp + 13) // WE ADD 13 positions for know the real character in the alphabet
+            let finalIndex = (index_in_Alp + 13); // WE ADD 13 positions for know the real character in the alphabet
         
             finalIndex >= 26 //but firts we evaluate if the index is not >= 26
                 ? finalIndex = Math.abs(finalIndex - 26) // in this case we substract 26 position to know the real index in alphabet and make a Math.abs() to obtein de absolute value (non negative)
@@ -37,7 +37,7 @@ const cypher = (encoded) => {
             fstr += alphabeth[finalIndex]
        
             }  else {
-                fstr += encoded[e] //If the character is not isAlpha then we just add it
+                fstr += encoded[e]; //If the character is not isAlpha then we just add it
             }
     }
     
