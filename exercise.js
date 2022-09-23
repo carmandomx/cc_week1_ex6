@@ -14,18 +14,18 @@ const cypher = (encoded) => {
     
     /* Only make changes below this comment */
     
-    let decoded = encoded.split('');                                // Convert each characater in a string to an element in an array.
+    let decoded = encoded.split('');                                // Converts each characater of a string into an element of an array.
 
-    // English alphabeth to encode/decode the message. 
-    const alphabeth = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    // English alphabet to encode/decode the message. 
+    const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
     // For loop to confirm if the character needs to be decoded. 
     for (let index = 0; index < decoded.length; index++) {
         const element = decoded[index];
         
         // If the character needs to be decoded, find the index in the English alphabet and shift 13 letters. 
-        if (alphabeth.includes(element)) {
-            let alpIndex = alphabeth.findIndex((letter) => letter === element);
+        if (alphabet.includes(element)) {
+            let alpIndex = alphabet.findIndex((letter) => letter === element);
             if ((alpIndex + 13) > 26) {
                 alpIndex -= 13;
             }
@@ -35,13 +35,13 @@ const cypher = (encoded) => {
             else {
                 alpIndex += 13;
             }
-            decoded.splice(index,1,alphabeth[alpIndex]);            //  Replace the letter with the encoded letter. 
+            decoded.splice(index,1,alphabet[alpIndex]);            //  Replace the letter with the encoded letter. 
         }
         
         
     }
-    decoded = decoded.splice(0,encoded.length);                     //  Join the elements of the array in only one element.
-    encoded = decoded.join('');                                     //  Convert the array to a string;
+    decoded = decoded.splice(0,encoded.length);                     //  Joins the array elements into a single element.
+    encoded = decoded.join('');                                     //  Converts the array to a string.
 
    return encoded;                                                  //  Return the message encoded. 
     /* Only make changes above this comment */
