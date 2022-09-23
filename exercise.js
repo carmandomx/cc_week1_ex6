@@ -36,14 +36,14 @@ const transform = (char) => {
     if(char >= 65 && char+13 <= 90){
         actValue = char + 13;
 
-    }else if(char >= 65 && char+13 > 90){
+    }else if(char >= 65 && char+13 > 90 && char < 97 ){
         actValue = 64 + ((char+13)-90);
 
     //If the ASCII value is of a lowercase letter, we use the next 2 instances
     }else if(char >= 97 && char+13 <= 122){
         actValue = char + 13;
 
-    }else if(char >= 97 && char+13 > 122){
+    }else if(char >= 97 && char+13 > 122 && char <= 122){
         actValue = 97 + ((char+13)-122);
 
     //Finally, if the ASCII code correspond to other type of value, we leave it as is
