@@ -12,15 +12,29 @@
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const cypher = (encoded) => {
     
-    /* Only make changes below this comment */
-    
-   return encoded;
-    /* Only make changes above this comment */
+   let diffLetter_pos = 13;
+   let asciiVal_Let = 0;
+
+    for (let i = 0; i < encoded.length; i++) {
+        
+        asciiVal_Let = encoded.charCodeAt(i);
+
+        if ((asciiVal_Let > 64 && asciiVal_Let < 91) || (asciiVal_Let > 96 && asciiVal_Let < 123)) {
+
+            let extra = asciiVal_Let + diffLetter_pos;
+
+            if ((extra >= 91 && extra < 109) || (extra >=123)) {
+                extra = extra - 26
+                encoded = encoded.substring(0, i) + String.fromCharCode(extra) + encoded.substring(i+1);
+            }
+            else{
+                encoded = encoded.substring(0, i) + String.fromCharCode(extra) + encoded.substring(i+1);               
+            }
+        }
+    }
+
+    return encoded;
 }
-
-
-
-
 
 /** DO NOT CHANGE THE LINE BELOW **/
 module.exports.cypher = cypher;
