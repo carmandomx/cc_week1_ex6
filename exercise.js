@@ -11,16 +11,35 @@
 
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const cypher = (encoded) => {
-    
+   
     /* Only make changes below this comment */
+
+    //First. We invent the ALPHABETH
+    const alphabeth = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let decoded = "";
     
-   return encoded;
+    //A for loop to iterate through the input to...
+    for (let i = 0; i < encoded.length; i++) {
+
+            //check if the string character is in our alphabeth
+            let index = alphabeth.indexOf(encoded[i]);
+            
+            //When the index is -1 it means it's an empty space like this => " "; So we add the space
+            if (index == -1) {
+                decoded += encoded[i];
+            }
+            //Now the decoder takes the index and sums 13 but if the index becomes greater than 26 we apply the
+            //remainder operation after the sum so we get the new position based on looping the number inside a 26 scale
+            else{
+                let decoder = (index + 13) % 26
+                decoded += alphabeth[decoder];
+            }
+        
+        }
+        return decoded;
+    
     /* Only make changes above this comment */
 }
-
-
-
-
 
 /** DO NOT CHANGE THE LINE BELOW **/
 module.exports.cypher = cypher;
