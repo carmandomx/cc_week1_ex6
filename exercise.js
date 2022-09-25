@@ -22,7 +22,7 @@ const cypher = (encoded) => {
 
         // Get the character we will be appending
         let char = encoded[i];
-        console.log(char); //j
+        //console.log(char); //j
 
         // The ".match()" method matches a string
         // With "/[a-z]/i" Search for a characters group from "a to z"
@@ -35,7 +35,7 @@ const cypher = (encoded) => {
             and saves it in the "code" variable */
             // The ".charCodeAt()" method returns the Unicode of the character at a specified index in a string 
             let code = encoded.charCodeAt(i);
-            console.log(code); //74
+            //console.log(code); //74
 
             // Uppercase letters case
             /* This condition matches if the ASCII code is between 65 and 90 
@@ -44,6 +44,10 @@ const cypher = (encoded) => {
 
                 // Here is where does the shift
                 // The "String.fromCharCode()"" method converts Unicode values to characters
+                // First substrac 65 for the code number coz the first uppercase letter A is 65
+                // Then do the shift 13 positions
+                // The % is for keep the code number between 0 and 26
+                // Finishing adds back the 65 to back as a character
                 char = String.fromCharCode(((code - 65 + 13) % 26) + 65);
             }
 
@@ -54,22 +58,26 @@ const cypher = (encoded) => {
 
                 // Here is where does the shift
                 // The "String.fromCharCode()"" method converts Unicode values to characters
+                // First substrac 97 for the code number coz the first lowercase letter a is 97
+                // Then do the shift 13 positions
+                // The % is for keep the code number between 0 and 26
+                // Finishing adds back the 97 to back as a character
                 char = String.fromCharCode(((code - 97 + 13) % 26) + 97);
             }
         }
 
-        // Appending
+        // Appending the chars to the resoult array
         decoded += char;
     }
 
-    // All done!
+    // Returns the shifted array
     return decoded;
 
-    return encoded;
+    //return encoded;
     /* Only make changes above this comment */
 }
 
-console.log(cypher("JRYPBZR GB VGX!"));
+//console.log(cypher("JRYPBZR GB VGX!"));
 
 
 
