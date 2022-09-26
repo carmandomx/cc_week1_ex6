@@ -13,10 +13,11 @@
 const cypher = (encoded) => {
     
     /* Only make changes below this comment */
-    let decodedResult = "";
-    let StringOne = 'ABCDEFGHIJKLM';
-    let StringTwo = 'NOPQRSTUVWXYZ';
+    let decodedResult = ""; // Using this variable to present the result from the change of words.
+    let StringOne = 'ABCDEFGHIJKLM'; // This variable is the string with the first half of the alphabeth
+    let StringTwo = 'NOPQRSTUVWXYZ'; // This variable is the string with the second half of the alphabeth
 
+    // this for loop will take the string and look for words that are in the first string and change them for the ones in the same position in the second string, then it will look for words that are in the second string and change them for the words in the same position in the first string. 
     for (let i = 0; i < encoded.length; i += 1){
         let letterToDecode = encoded[i];
         
@@ -25,14 +26,17 @@ const cypher = (encoded) => {
         } else if (StringTwo.indexOf(letterToDecode) >= 0){
             decodedResult += StringOne[StringTwo.indexOf(letterToDecode)];
         } else {
-            decodedResult += letterToDecode;
+            decodedResult += letterToDecode; // this is in the cases that we have spaces, for them to stay in the stream.
         }
     }
     
-   return decodedResult;
+   return decodedResult; // result of the changes
 
     /* Only make changes above this comment */
 }
+
+
+
 
 
 
