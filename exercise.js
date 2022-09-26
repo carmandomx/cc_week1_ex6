@@ -13,12 +13,30 @@
 const cypher = (encoded) => {
     
     /* Only make changes below this comment */
+    let decodedResult = "";
+    let StringOne = 'ABCDEFGHIJKLM';
+    let StringTwo = 'NOPQRSTUVWXYZ';
+
+    for (let i = 0; i < encoded.length; i += 1){
+        let letterToDecode = encoded[i];
+        
+        if (StringOne.indexOf(letterToDecode) >= 0){
+            decodedResult += StringTwo[StringOne.indexOf(letterToDecode)];
+        } else if (StringTwo.indexOf(letterToDecode) >= 0){
+            decodedResult += StringOne[StringTwo.indexOf(letterToDecode)];
+        } else {
+            decodedResult += letterToDecode;
+        }
+    }
     
-   return encoded;
+   return decodedResult;
+
     /* Only make changes above this comment */
 }
 
 
+
+  console.log(cypher("SERR PBQR PNZC"))
 
 
 
