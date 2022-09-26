@@ -14,10 +14,36 @@ const cypher = (encoded) => {
     
     /* Only make changes below this comment */
     
-   return encoded;
+    //we create a array variable to store the new decoded array
+    let convertedArray = "";
+    
+    //we go through array encoded, element by element with a for cycle to evaluate its ascii code
+    //in a vChar variable
+    for(let i = 0; i < encoded.length; i++){
+        
+        let vChar = encoded.charCodeAt(i);
+        //we keep the data equal if they dont belong to the range A-Z
+       if(vChar > 90 || vChar < 65){
+            convertedArray += String.fromCharCode(vChar);
+       }
+       //We rotate 13 places if the element is between A and Z
+       else if((vChar + 13 <= 90) && (vChar + 13 >= 65)){        
+        
+        convertedArray += String.fromCharCode(vChar + 13);
+       }
+       //we make the adjust if the actual evaluated value exceeds the range A-Z
+       //with the rotation of 13 places
+       else if(vChar + 13 > 90){
+        convertedArray += String.fromCharCode(vChar - 13);
+       }
+        
+                
+    }
+    
+    //we return the resulted array
+   return convertedArray;
     /* Only make changes above this comment */
 }
-
 
 
 
