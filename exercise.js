@@ -13,8 +13,25 @@
 const cypher = (encoded) => {
     
     /* Only make changes below this comment */
-    
-   return encoded;
+    let output = ""; //Variable to store the text.
+
+    // I run through each character.
+    for (let i = 0; i < encoded.length; i++) {
+        // I get the character to be added.
+        let c = encoded[i];
+
+        // I check if it is a letter.
+        if (c.match(/[a-z]/i)) {
+            // Get the code.
+            let code = encoded.charCodeAt(i); //Returns the Unicode of the character.
+            c = String.fromCharCode(((code - 65 + 13) % 26) + 65);
+        }
+        // Add the character.
+        output += c;
+    }
+    encoded = output;
+
+    return encoded;
     /* Only make changes above this comment */
 }
 
