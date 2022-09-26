@@ -36,9 +36,6 @@ const cypher = (encoded) => {
 
 
 
-  console.log(cypher("SERR PBQR PNZC"))
-
-
 
 /** DO NOT CHANGE THE LINE BELOW **/
 module.exports.cypher = cypher;
