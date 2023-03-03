@@ -12,17 +12,18 @@
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const cypher = (encoded) => {
     /* Only make changes below this comment */
-    const alpha='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const arrayalpha = alpha.split('');
-    const arrayencoded = encoded.split('');
-    let res = [];
+    const alpha='ABCDEFGHIJKLMNOPQRSTUVWXYZ'; // Strin with the abc
+    const arrayalpha = alpha.split(''); // Transforming the abc string into an array
+    const arrayencoded = encoded.split(''); // Transformint the input string into an array
+    let res = []; // create a void array for saving the answer
+    //the next for loop iterates inside the input array and saves its elements inside the variable item then we make a conditional to validate if the character is a letter of the abc
         for(i=0;i<arrayencoded.length;i++){
             let item = arrayencoded[i]
             if(arrayalpha.includes(item)){
                 for(j=0;j<arrayalpha.length;j++){
                     if(item==arrayalpha[j]){
-                        let shift = j+13;
-                        if(shift>=arrayalpha.length){
+                        let shift = j+13; //here we make the encoding process by moving the letter 13 places.
+                        if(shift>=arrayalpha.length){//this conditional allows us to adjust de J value if it goes outsite de values of the length of the abc array
                             let shiftin = shift-arrayalpha.length;
                             item2 = arrayalpha[shiftin];
                             res.push(item2);
