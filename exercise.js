@@ -11,10 +11,34 @@
 
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const cypher = (encoded) => {
-    
     /* Only make changes below this comment */
-    
-   return encoded;
+    const alpha='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const arrayalpha = alpha.split('');
+    const arrayencoded = encoded.split('');
+    let res = [];
+        for(i=0;i<arrayencoded.length;i++){
+            let item = arrayencoded[i]
+            if(arrayalpha.includes(item)){
+                for(j=0;j<arrayalpha.length;j++){
+                    if(item==arrayalpha[j]){
+                        let shift = j+13;
+                        if(shift>=arrayalpha.length){
+                            let shiftin = shift-arrayalpha.length;
+                            item2 = arrayalpha[shiftin];
+                            res.push(item2);
+                            break;
+                        }else{
+                            item3 = arrayalpha[j+13];
+                            res.push(item3);
+                        }
+                    }
+                }
+            }else{
+                res.push(item);
+            }     
+    }
+    let decoded = res.join("")
+   return decoded;
     /* Only make changes above this comment */
 }
 
