@@ -13,8 +13,32 @@
 const cypher = (encoded) => {
     
     /* Only make changes below this comment */
-    
-   return encoded;
+
+    let length = encoded.length; // Length of the string
+    let i = 0; // Var - for index
+
+    let asciiCode = 0; // Var - storage ascii value
+    let coded = '';
+
+    /* Loop through each character in the array */
+    for (i = 0; i < length; i++) {
+        /* Assign the numerical value of the ascii code in the position of the text string */
+        asciiCode = encoded.charCodeAt(i);
+
+        /* Condition to know if the number of the ascii code is between the range of capital letters */
+        if(asciiCode >= 65 && asciiCode <= 90) {
+            /* Formula of Caesar's cypher */
+            asciiCode = ((asciiCode - 65 + 13) % 26) + 65;
+        }
+        /* Asign the result of the encoded string */
+        coded += String.fromCharCode(asciiCode);
+
+    }
+
+    /* Return result */
+    encoded = coded;
+    return encoded;
+
     /* Only make changes above this comment */
 }
 
