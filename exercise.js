@@ -16,7 +16,7 @@ const cypher = (encoded) => {
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let result = "";
   let shift = 13;
-  // Lopp through the array
+  // Lopp through the string
   for (let i = 0; i < encoded.length; i++) {
     // Save each letter of the encoded string in a variable
     const char = encoded[i].toUpperCase();
@@ -29,7 +29,7 @@ const cypher = (encoded) => {
       const newIndex = (index + shift) % alphabet.length;
       newChar = alphabet[newIndex];
     }
-
+    // Add everything to the result string
     result += newChar;
   }
 
