@@ -10,7 +10,7 @@
 */
 
 /** DO NOT CHANGE THE FUNCTION NAME **/
-const cypher = (encoded) => {
+const cypher = (encoded, spaces) => {
     
     /* Only make changes below this comment */
     let res = ""
@@ -24,11 +24,11 @@ const cypher = (encoded) => {
     
 
             if (code >= 65 && code <= 90) { //for Uppercase letters
-            chr = String.fromCharCode(((code - 65 + 13) % 26) + 65 ) //Rounds the results to move the letter 13 spots.
+            chr = String.fromCharCode(((code - 65 + spaces) % 26) + 65 ) //Rounds the results to move the letter 13 spots.
             }
 
             else if (code >= 97 && code <= 122) { //for Lowercase letter
-            chr = String.fromCharCode(((code - 97 + 13) % 26) + 97 ) //Rounds the results to move the letter
+            chr = String.fromCharCode(((code - 97 + spaces) % 26) + 97 ) //Rounds the results to move the letter
             }
     }
         
@@ -40,7 +40,7 @@ const cypher = (encoded) => {
 }
 
 str = "Hola, me llamo Sergio Eloy"
-prueba1 = cypher(str)
+prueba1 = cypher(str,13)
 
 console.log(prueba1)
 
