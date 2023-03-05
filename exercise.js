@@ -11,16 +11,28 @@
 
 /** DO NOT CHANGE THE FUNCTION NAME **/
 const cypher = (encoded) => {
-    
-    /* Only make changes below this comment */
-    
-   return encoded;
-    /* Only make changes above this comment */
-}
+  /* Only make changes below this comment */
+  let input = encoded.split("");
 
+  let output = "";
+  let a = "A".charCodeAt(0);
 
+  for (var i = 0; i < input.length; i++) {
+    let c = input[i].charCodeAt(0);
 
+    if (c >= "A".charCodeAt(0) && c <= "Z".charCodeAt(0)) {
+      c = ((c - a + 13) % 26) + a;
+    } else if (c >= "a".charCodeAt(0) && c <= "z".charCodeAt(0)) {
+      c = ((c - a + 13) % 26) + a;
+    }
 
+    output += String.fromCharCode(c);
+  }
+
+  return output;
+
+  /* Only make changes above this comment */
+};
 
 /** DO NOT CHANGE THE LINE BELOW **/
 module.exports.cypher = cypher;
